@@ -1,10 +1,18 @@
-!pip install seaborn
 import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
+
+# Install seaborn if not already installed
+try:
+    import seaborn
+except ImportError:
+    st.warning("Seaborn not found. Installing seaborn...")
+    st.warning("Please restart the app after installation.")
+    st.system("pip install seaborn")
+    import seaborn as sns
 
 # Function to generate plots and display column information
 def plotter(df_cluster, colvar, paleta):
