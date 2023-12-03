@@ -1,8 +1,22 @@
 import streamlit as st
-import pandas as pd
-import matplotlib.pyplot as plt
-import base64
-from io import BytesIO
+
+# Install pandas if not already installed
+try:
+    import pandas
+except ImportError:
+    st.warning("Pandas not found. Installing pandas...")
+    st.warning("Please restart the app after installation.")
+    st.system("pip install pandas")
+    import pandas as pd
+
+# Install numpy if not already installed
+try:
+    import numpy
+except ImportError:
+    st.warning("Numpy not found. Installing numpy...")
+    st.warning("Please restart the app after installation.")
+    st.system("pip install numpy")
+    import numpy as np
 
 # Install seaborn if not already installed
 try:
@@ -12,6 +26,18 @@ except ImportError:
     st.warning("Please restart the app after installation.")
     st.system("pip install seaborn")
     import seaborn as sns
+
+# Install matplotlib if not already installed
+try:
+    import matplotlib
+except ImportError:
+    st.warning("Matplotlib not found. Installing matplotlib...")
+    st.warning("Please restart the app after installation.")
+    st.system("pip install matplotlib")
+    import matplotlib.pyplot as plt
+
+import base64
+from io import BytesIO
 
 # Function to generate plots and display column information
 def plotter(df_cluster, colvar, paleta):
